@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>404 Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0e0e10;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      color: #ff4d6d;
+    }
+
+    p {
+      margin-bottom: 2rem;
+      color: #ccc;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .card {
+      background-color: #1e1e20;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(255, 77, 109, 0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-title {
+      padding: 1rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>404 Gallery</h1>
+  <p>A dark-themed anime wallpaper gallery</p>
+
+  <div class="gallery" id="gallery">
+    <!-- Images will go here -->
+  </div>
+
+  <script>
+    const images = [
+      {
+        title: 'Samurai Girl',
+        url: 'https://i.imgur.com/HQd0oKl.jpeg'
+      },
+      {
+        title: 'Cyberpunk Vibes',
+        url: 'https://i.imgur.com/nQhOQBl.jpeg'
+      },
+      {
+        title: 'Night Streets',
+        url: 'https://i.imgur.com/2hzs4lH.jpeg'
+      },
+      {
+        title: 'Chill Waifu',
+        url: 'https://i.imgur.com/oe4iK5y.jpeg'
+      },
+      {
+        title: 'Dark Magic',
+        url: 'https://i.imgur.com/gP3TPfp.jpeg'
+      }
+    ];
+
+    const gallery = document.getElementById('gallery');
+
+    images.forEach(img => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="${img.url}" alt="${img.title}">
+        <div class="card-title">${img.title}</div>
+      `;
+      gallery.appendChild(card);
+    });
+  </script>
+
+</body>
+  </html>
